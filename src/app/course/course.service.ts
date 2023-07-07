@@ -46,6 +46,7 @@ export class CourseService {
 
     async create(courseDto: CourseDto) {
         const course = new Course();
+        course.id = courseDto.id;
         course.description = courseDto.description;
         course.subject = courseDto.subject;
     

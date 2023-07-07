@@ -66,6 +66,7 @@ export class StudentService {
 
     async create(studentDto: StudentDto) {
 		let student = new Student();
+        student.id = studentDto.id;
         student.name = studentDto.name;
 
         return await this.studentRepository.save(student);
