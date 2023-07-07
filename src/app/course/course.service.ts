@@ -49,6 +49,7 @@ export class CourseService {
         course.id = courseDto.id;
         course.description = courseDto.description;
         course.subject = courseDto.subject;
+        course.students = courseDto.students;
     
         return await this.courseRepository.save(course);
 	}
