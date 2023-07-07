@@ -16,6 +16,9 @@ export class CourseService {
       relations: {
         students: true,
       },
+      order: {
+        id: 'ASC',
+      },
     });
   }
 
