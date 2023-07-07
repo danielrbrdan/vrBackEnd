@@ -16,8 +16,6 @@ export class StudentService {
     ) {}
 
     async addCourse(studentId: number, courseId: number) {
-        console.log("studentId", studentId);
-        console.log("courseId", courseId)
         const student = await this.studentRepository.findOneBy({id: studentId});
         const course = await this.courseService.findOneById(courseId);
 
@@ -68,6 +66,7 @@ export class StudentService {
 		let student = new Student();
         student.id = studentDto.id;
         student.name = studentDto.name;
+        student.courses = studentDto.courses;
 
         return await this.studentRepository.save(student);
 	}
