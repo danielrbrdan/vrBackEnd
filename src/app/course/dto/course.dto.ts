@@ -1,18 +1,14 @@
-import { IsNotEmpty } from "class-validator";
-import { Student } from "src/app/student/student.entity";
-import { Course } from "../course.entity";
-import { Transform } from 'class-transformer';
-
+import { IsNotEmpty } from 'class-validator';
+import { Student } from 'src/app/student/student.entity';
 
 export class CourseDto {
-    public readonly id: number;
-    
-    @IsNotEmpty()
-    public readonly description: string;
+  public readonly id: number;
 
-    @IsNotEmpty()
-    public readonly subject: string;
+  @IsNotEmpty()
+  public readonly description: string;
 
-    public readonly students: Student[];
+  @IsNotEmpty()
+  public readonly subject: string;
 
+  public readonly students: Student[];
 }
