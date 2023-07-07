@@ -12,7 +12,7 @@ import { Student } from './app/student/student.entity';
 
 @Module({
   imports: [
-    CourseModule, 
+    CourseModule,
     StudentModule,
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
@@ -29,10 +29,6 @@ import { Student } from './app/student/student.entity';
     TypeOrmModule.forFeature([Student]),
   ],
   controllers: [AppController],
-  providers: [
-    AppService,
-    CourseService, 
-    StudentService
-  ],
+  providers: [AppService, CourseService, StudentService],
 })
 export class AppModule {}
