@@ -79,6 +79,9 @@ export class StudentService {
       relations: {
         courses: true,
       },
+      order: {
+        id: 'ASC',
+      },
     });
   }
 }
