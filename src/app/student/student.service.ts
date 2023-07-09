@@ -4,6 +4,7 @@ import { Student } from './student.entity';
 import { Repository } from 'typeorm';
 import { StudentDto } from './dto/student.dto';
 import { CourseService } from '../course/course.service';
+import { plainToClass } from 'class-transformer';
 
 @Injectable()
 export class StudentService {
@@ -66,10 +67,7 @@ export class StudentService {
   }
 
   async create(studentDto: StudentDto) {
-    let student = new Student();
-    student.id = studentDto.id;
-    student.name = studentDto.name;
-    student.courses = studentDto.courses;
+    const student = plainToClass(Student, studentDto);
 
     return await this.studentRepository.save(student);
   }
