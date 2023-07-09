@@ -3,6 +3,7 @@ import { Repository } from 'typeorm';
 import { Course } from './course.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CourseDto } from './dto/course.dto';
+import { plainToClass } from 'class-transformer';
 
 @Injectable()
 export class CourseService {
@@ -43,11 +44,7 @@ export class CourseService {
   }
 
   async create(courseDto: CourseDto) {
-    const course = new Course();
-    course.id = courseDto.id;
-    course.description = courseDto.description;
-    course.subject = courseDto.subject;
-    course.students = courseDto.students;
+    const course = plainToClass(Course, courseDto);
 
     return await this.courseRepository.save(course);
   }
